@@ -6,7 +6,9 @@ This module helps with the central management of "_all things_" (eventually) rel
 
 > !Disclaimer:
 > 
-> Intended use case is for singe node PVE datacenters. As of now the module does not address PVE clusters!
+> Intended use case is for single node PVE datacenters. As of now the module does not address PVE clusters!
+
+For a quick deployment you only need to source the module, set the provider corrently (via env vars as you should!) and provide PVE node name.
 
 ## Inputs
 | Name | Description | Type | Default | Required |
