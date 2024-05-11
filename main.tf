@@ -166,7 +166,7 @@ resource "proxmox_virtual_environment_cluster_firewall_security_group" "default_
       dport   = rule.value.dport
       proto   = rule.value.proto
       log     = rule.value.log
-      comment = "${rule.value.comment}; Managed by Terraform"
+      comment = "${rule.value.comment == null ? "" : rule.value.comment}; Managed by Terraform"
     }
   }
 }
@@ -195,7 +195,7 @@ resource "proxmox_virtual_environment_cluster_firewall_security_group" "fsg" {
       dport   = rule.value.dport
       proto   = rule.value.proto
       log     = rule.value.log
-      comment = "${rule.value.comment}; Managed by Terraform"
+      comment = "${rule.value.comment == null ? "" : rule.value.comment}; Managed by Terraform"
     }
   }
 }
@@ -218,7 +218,7 @@ resource "proxmox_virtual_environment_firewall_rules" "dtc_rules" {
       dport   = rule.value.dport
       proto   = rule.value.proto
       log     = rule.value.log
-      comment = "${rule.value.comment}; Managed by Terraform"
+      comment = "${rule.value.comment == null ? "" : rule.value.comment}; Managed by Terraform"
     }
   }
 
@@ -229,7 +229,7 @@ resource "proxmox_virtual_environment_firewall_rules" "dtc_rules" {
       enabled        = rule.value.enabled
       security_group = rule.value.fsg
       iface          = rule.value.iface
-      comment        = "${rule.value.comment}; Managed by Terraform"
+      comment        = "${rule.value.comment == null ? "" : rule.value.comment}; Managed by Terraform"
     }
   }
 
